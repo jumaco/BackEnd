@@ -11,12 +11,12 @@ class Producto {
 
 const nuevoContenedor = new Contenedor('productos.json')
 
-const nuevoProducto = new Producto('Fuente de PC', 9999, 'https://http2.mlstatic.com/D_NQ_NP_601558-MLA43358416469_092020-O.webp')
+// const nuevoProducto = new Producto('Notebook HP 240 G7', 49999, 'https://http2.mlstatic.com/D_NQ_NP_954041-MLA46302470460_062021-O.webp')
 
 const ejecutar = async () => {
 
-    const id = await nuevoContenedor.save(nuevoProducto);
-    console.log(id);
+    // const id = await nuevoContenedor.save(nuevoProducto);
+    // console.log(id);
 
     // const all = await nuevoContenedor.getAll();
     // console.log(all);
@@ -28,8 +28,8 @@ const ejecutar = async () => {
 
     // const deleteById = await nuevoContenedor.deleteById(2)
     
+    // const random = await nuevoContenedor.getRandom();
+    // console.log(random);
 }
 
 ejecutar()
-
-

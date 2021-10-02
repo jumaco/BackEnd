@@ -25,8 +25,6 @@ class Contenedor {
             console.log({ error })
         }
     }
-
-
     // Recibe un id y devuelve el objeto con ese id, o null si no está.
     async getById(number) {
         try {
@@ -49,6 +47,18 @@ class Contenedor {
             const contenido = await fs.promises.readFile(`./${this.file}`, 'utf8')
             const arrayObtenido = JSON.parse(contenido);
             return arrayObtenido;
+        } catch (error) {
+            console.log({ error })
+        }
+    }
+    // const obtenerRandomInferior = (min, max) => Math.round(Math.random() * (max - min + 1)) + min;
+    async getRandom() {
+        const random = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+        try {
+            const contenido = await fs.promises.readFile(`./${this.file}`, 'utf8')
+            const arrayObtenido = JSON.parse(contenido);
+            const posicionRandom = random(0, arrayObtenido.length - 1);
+            return (arrayObtenido[posicionRandom]);
         } catch (error) {
             console.log({ error })
         }

@@ -16,5 +16,29 @@
     "price": 9999,
     "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_601558-MLA43358416469_092020-O.webp",
     "id": 5
+  },
+  {
+    "title": "Fuente de PC",
+    "price": 9999,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_601558-MLA43358416469_092020-O.webp",
+    "id": 6
+  },
+  {
+    "title": "Fuente de PC",
+    "price": 9999,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_601558-MLA43358416469_092020-O.webp",
+    "id": 7
+  },
+  {
+    "title": "Notebook HP 240 G7",
+    "price": 49999,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_954041-MLA46302470460_062021-O.webp",
+    "id": 8
+  },
+  {
+    "title": "Notebook HP 240 G7",
+    "price": 49999,
+    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_954041-MLA46302470460_062021-O.webp",
+    "id": 9
   }
 ]
