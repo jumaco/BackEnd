@@ -1,5 +1,13 @@
 const fs = require('fs')
 
+class Producto {
+    constructor(title, price, thumbnail) {
+        this.title = title;
+        this.price = price;
+        this.thumbnail = thumbnail;
+    }
+}
+
 class Contenedor {
     constructor(file) {
         this.file = file;
@@ -87,6 +95,17 @@ class Contenedor {
             await fs.promises.writeFile(`./${this.file}`, '')
         } catch (error) {
             console.log({ error })
+        }
+    }
+    // Recibe y actualiza un producto según su id.
+    updateById(prod, id) {
+        const newProd = { id: Number(id), ...prod }
+        const index = this.productos.findIndex(p => p.id === id)
+        if (index !== -1) {
+            this.productos[index] = newProd
+            return newProd
+        } else {
+            return { error: 'producto no encontrado' }
         }
     }
 
