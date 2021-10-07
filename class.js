@@ -99,14 +99,7 @@ class Contenedor {
     }
     // Recibe y actualiza un producto según su id.
     updateById(prod, id) {
-        const newProd = { id: Number(id), ...prod }
-        const index = this.productos.findIndex(p => p.id === id)
-        if (index !== -1) {
-            this.productos[index] = newProd
-            return newProd
-        } else {
-            return { error: 'producto no encontrado' }
-        }
+        
     }
 
 };

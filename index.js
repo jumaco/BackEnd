@@ -65,14 +65,14 @@ server.post('/api/producto/:title/:price/:thumbnail', async (req, res) => {
 server.put('/api/productos/:id', async (req, res) => {
   const id = Number(req.params.id)
   const producto = await contenedor.getById(id);
-
   
-  res.send('PUTeo');
+  
+  res.send('PUT');
 });
 
 // DELETE '/api/productos/:id' -> elimina un producto según su id.
 server.delete('/api/productos/:id', async (req, res) => {
-  res.send('DELETEo');
+  res.send('DELETE');
 });
 
 
