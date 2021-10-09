@@ -1,8 +1,8 @@
 [
   {
-    "title": "Fuente de PC",
-    "price": 9999,
-    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_601558-MLA43358416469_092020-O.webp",
+    "title": "TermoTermo",
+    "price": "2500",
+    "thumbnail": "Termo.2500Termo",
     "id": 1
   },
   {
@@ -42,9 +42,9 @@
     "id": 9
   },
   {
-    "title": "title",
-    "price": "price",
-    "thumbnail": "thumbnail",
+    "title": "Termo",
+    "price": "2500",
+    "thumbnail": "Termo.2500",
     "id": 10
   },
   {
@@ -54,9 +54,9 @@
     "id": 11
   },
   {
-    "title": "title3",
-    "price": "price3",
-    "thumbnail": "thumbnail3",
+    "title": "Termo",
+    "price": "2500",
+    "thumbnail": "Termo.2500",
     "id": 12
   },
   {
@@ -64,5 +64,17 @@
     "price": "price4",
     "thumbnail": "thumbnail4",
     "id": 13
+  },
+  {
+    "title": "Termo",
+    "price": "2500",
+    "thumbnail": "Termo.2500",
+    "id": 14
+  },
+  {
+    "title": "Termo",
+    "price": "2500",
+    "thumbnail": "Termo.2500",
+    "id": 15
   }
 ]

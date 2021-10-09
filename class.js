@@ -22,8 +22,14 @@ class Contenedor {
                 array.push(object);
             } else {
                 const arrayObtenido = JSON.parse(contenido);
-                object.id = arrayObtenido[arrayObtenido.length - 1].id + 1;
-                arrayObtenido.push(object);
+                const existe = arrayObtenido.find((item => item.id === object.id))
+                if (existe) {
+                    let indexObject = arrayObtenido.findIndex((item => item.id === object.id))
+                    arrayObtenido[indexObject] = object
+                } else {
+                    object.id = arrayObtenido[arrayObtenido.length - 1].id + 1;
+                    arrayObtenido.push(object);
+                }
                 array = arrayObtenido;
             }
             const objectsString = JSON.stringify(array, null, 2);
@@ -79,7 +85,6 @@ class Contenedor {
             arrayObtenido.map((object) => {
                 if (object.id === number) {
                     let indice = arrayObtenido.indexOf(object);
-                    console.log('INDICEEE', indice);
                     arrayObtenido.splice(indice, 1);
                 };
             });
@@ -98,10 +103,19 @@ class Contenedor {
         }
     }
     // Recibe y actualiza un producto según su id.
-    updateById(prod, id) {
-        
+    async updateById(prod, id) {
+        try {
+            const producto = await this.getById(id);
+            const productoUpdated = {
+                ...producto,
+                ...prod
+            }
+            await this.save(productoUpdated)
+            return productoUpdated;
+        } catch (error) {
+            console.log({ error })
+        }
     }
-
 };
 
 module.exports = Contenedor;

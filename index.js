@@ -5,11 +5,11 @@ const contenedor = new Contenedor('./productos.json');
 
 class Producto {
   constructor(title, price, thumbnail) {
-      this.title = title;
-      this.price = price;
-      this.thumbnail = thumbnail;
+    this.title = title;
+    this.price = price;
+    this.thumbnail = thumbnail;
   }
-}
+};
 
 
 const server = express();
@@ -63,11 +63,19 @@ server.post('/api/producto/:title/:price/:thumbnail', async (req, res) => {
 
 // PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
 server.put('/api/productos/:id', async (req, res) => {
-  const id = Number(req.params.id)
-  const producto = await contenedor.getById(id);
-  
-  
-  res.send('PUT');
+  console.log(req.params.id);
+  console.log(req.body);
+
+  const productoUpadate = contenedor.updateById(req.body, Number(req.params.id))
+
+  // const id = Number(req.params.id)
+  // const producto = await contenedor.getById(id);
+
+
+  res.send({
+    message: 'success',
+    data: productoUpadate
+  });
 });
 
 // DELETE '/api/productos/:id' -> elimina un producto según su id.
