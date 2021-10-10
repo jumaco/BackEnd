@@ -3,20 +3,13 @@ const express = require('express');
 const Contenedor = require('./class');
 const contenedor = new Contenedor('./productos.json');
 
-class Producto {
-  constructor(title, price, thumbnail) {
-    this.title = title;
-    this.price = price;
-    this.thumbnail = thumbnail;
-  }
-};
-
-
 const server = express();
 const PORT = 8080;
 
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
+
+server.use('/agregar', express.static('public'));
 
 
 // ENDPOINTS
@@ -50,40 +43,51 @@ server.get('/api/consulta', (req, res) => {
 server.get('/api/productos/:id', async (req, res) => {
   const id = Number(req.params.id)
   const producto = await contenedor.getById(id);
-  res.json(producto);
+  if (!producto) {
+    res.send({
+      error: 'producto no encontrado'
+    });
+  } else {
+    res.json(producto);
+  }
 });
 
 // POST '/api/producto' -> recibe y agrega un producto, y lo devuelve con su id asignado.
-server.post('/api/producto/:title/:price/:thumbnail', async (req, res) => {
-  const { title, price, thumbnail } = req.params;
-  const productoNuevo = new Producto(title, price, thumbnail)
-  await contenedor.save(productoNuevo)
-  res.send(productoNuevo);
+server.post('/api/producto', async (req, res) => {
+  // const newProducto = {...req.body};
+  // const productoNuevo = new Producto(newProducto)
+  await contenedor.save(req.body)
+  res.send(req.body);
 });
 
 // PUT '/api/productos/:id' -> recibe y actualiza un producto según su id.
 server.put('/api/productos/:id', async (req, res) => {
-  console.log(req.params.id);
-  console.log(req.body);
-
-  const productoUpadate = contenedor.updateById(req.body, Number(req.params.id))
-
-  // const id = Number(req.params.id)
-  // const producto = await contenedor.getById(id);
-
-
-  res.send({
-    message: 'success',
-    data: productoUpadate
-  });
+  const productoUpadate = await contenedor.updateById(req.body, Number(req.params.id));
+  if (!productoUpadate) {
+    res.send({
+      error: 'producto no encontrado'
+    });
+  } else {
+    res.send({
+      message: 'success',
+      data: productoUpadate
+    });
+  }
 });
 
 // DELETE '/api/productos/:id' -> elimina un producto según su id.
 server.delete('/api/productos/:id', async (req, res) => {
-  res.send('DELETE');
+  const productoDelete = await contenedor.deleteById(Number(req.params.id))
+  if (!productoDelete) {
+    res.send({
+      error: 'producto no encontrado'
+    });
+  } else {
+    res.send({
+      message: 'Producto eliminado'
+    });
+  }
 });
-
-
 
 
 // enciendo el server

@@ -1,8 +1,8 @@
 [
   {
-    "title": "TermoTermo",
-    "price": "2500",
-    "thumbnail": "Termo.2500Termo",
+    "title": "TermoTermoTermo",
+    "price": "25002500",
+    "thumbnail": "Termo.2500Termo.Termo",
     "id": 1
   },
   {
@@ -12,9 +12,9 @@
     "id": 4
   },
   {
-    "title": "Fuente de PC",
-    "price": 9999,
-    "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_601558-MLA43358416469_092020-O.webp",
+    "title": "TermoTermoTermoTermoTermoTermo",
+    "price": "25002500TermoTermoTermo",
+    "thumbnail": "Termo.2500TermoTermoTermoTermo.Termo",
     "id": 5
   },
   {
@@ -40,12 +40,6 @@
     "price": 49999,
     "thumbnail": "https://http2.mlstatic.com/D_NQ_NP_954041-MLA46302470460_062021-O.webp",
     "id": 9
-  },
-  {
-    "title": "Termo",
-    "price": "2500",
-    "thumbnail": "Termo.2500",
-    "id": 10
   },
   {
     "title": "title2",
@@ -76,5 +70,29 @@
     "price": "2500",
     "thumbnail": "Termo.2500",
     "id": 15
+  },
+  {
+    "title": "TermoTermoTermo",
+    "price": "25002500",
+    "thumbnail": "Termo.2500Termo.Termo",
+    "id": 16
+  },
+  {
+    "title": "TermoTermoTermoTermoTermoTermo",
+    "price": "25002500TermoTermoTermo",
+    "thumbnail": "Termo.2500TermoTermoTermoTermo.Termo",
+    "id": 17
+  },
+  {
+    "title": "Un Nuevo",
+    "price": "12345",
+    "thumbnail": "https://http2.mlstatic.com/D_Q_NP_2X_750908-MLA45120522048_032021-AB.webp",
+    "id": 18
+  },
+  {
+    "title": "Un Nuevo Nuevo",
+    "price": "12.49",
+    "thumbnail": "https://http2.mlstatic.com/D_Q_NP_2X_750908-MLA45120522048_032021-AB.webp",
+    "id": 19
   }
 ]

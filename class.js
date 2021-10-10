@@ -1,13 +1,5 @@
 const fs = require('fs')
 
-class Producto {
-    constructor(title, price, thumbnail) {
-        this.title = title;
-        this.price = price;
-        this.thumbnail = thumbnail;
-    }
-}
-
 class Contenedor {
     constructor(file) {
         this.file = file;
@@ -40,13 +32,13 @@ class Contenedor {
         }
     }
     // Recibe un id y devuelve el objeto con ese id, o null si no está.
-    async getById(number) {
+    async getById(id) {
         try {
             const contenido = await fs.promises.readFile(`./${this.file}`, 'utf8');
             const arrayObtenido = JSON.parse(contenido);
             let objectEncontrado = null
             arrayObtenido.map((object) => {
-                if (object.id === number) {
+                if (object.id === id) {
                     objectEncontrado = object;
                 }
             })
@@ -78,18 +70,21 @@ class Contenedor {
         }
     }
     // Elimina del archivo el objeto con el id buscado.
-    async deleteById(number) {
+    async deleteById(id) {
         try {
             const contenido = await fs.promises.readFile(`./${this.file}`, 'utf8');
             const arrayObtenido = JSON.parse(contenido);
+            let encontrado = false
             arrayObtenido.map((object) => {
-                if (object.id === number) {
+                if (object.id === id) {
+                    encontrado = true
                     let indice = arrayObtenido.indexOf(object);
                     arrayObtenido.splice(indice, 1);
                 };
             });
             const arrayString = JSON.stringify(arrayObtenido, null, 2);
             await fs.promises.writeFile(`./${this.file}`, arrayString);
+            return encontrado
         } catch (error) {
             console.log({ error });
         };
@@ -106,6 +101,9 @@ class Contenedor {
     async updateById(prod, id) {
         try {
             const producto = await this.getById(id);
+            if (!producto) {
+                return producto
+            }
             const productoUpdated = {
                 ...producto,
                 ...prod
